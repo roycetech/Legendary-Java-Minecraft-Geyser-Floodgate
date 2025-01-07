@@ -163,13 +163,13 @@ else
     fi
 
     # Update VisualModder
-    echo "Updating VisualModder..."
-    if [ -z "$QuietCurl" ]; then
-        curl -H "Accept-Encoding: identity" -H "Accept-Language: en" -L -A "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4.212 Safari/537.36" -o /minecraft/plugins/VisualModder.jar "https://visualmodder.org/downloads/visualmodder-1.20.4-20240214_1206_obf.jar"
+    # echo "Updating VisualModder..."
+    # if [ -z "$QuietCurl" ]; then
+    #     curl -H "Accept-Encoding: identity" -H "Accept-Language: en" -L -A "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4.212 Safari/537.36" -o /minecraft/plugins/VisualModder.jar "https://visualmodder.org/downloads/visualmodder-1.20.4-20240214_1206_obf.jar"
 
-    else
-        curl --no-progress-meter -H "Accept-Encoding: identity" -H "Accept-Language: en" -L -A "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4.212 Safari/537.36" -o /minecraft/plugins/VisualModder.jar "https://visualmodder.org/downloads/visualmodder-1.20.4-20240214_1206_obf.jar"
-    fi
+    # else
+    #     curl --no-progress-meter -H "Accept-Encoding: identity" -H "Accept-Language: en" -L -A "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4.212 Safari/537.36" -o /minecraft/plugins/VisualModder.jar "https://visualmodder.org/downloads/visualmodder-1.20.4-20240214_1206_obf.jar"
+    # fi
 
     # Update Geyser
     echo "Updating Geyser..."

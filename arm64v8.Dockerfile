@@ -5,17 +5,19 @@
 # Use Ubuntu rolling version for builder
 FROM ubuntu:rolling AS builder
 
+# RUN add-apt-repository ppa:openjdk-r/ppa
+
 # Update apt
 RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install qemu-user-static binfmt-support apt-utils -yqq && rm -rf /var/cache/apt/*
 
 # Use Ubuntu rolling version
-FROM --platform=linux/arm64/v8 ubuntu:rolling
+FROM ubuntu:rolling
 
 # Add QEMU
 COPY --from=builder /usr/bin/qemu-aarch64-static /usr/bin/
 
 # Fetch dependencies
-RUN apt update && DEBIAN_FRONTEND=noninteractive apt-get install openjdk-19-jre-headless systemd-sysv tzdata sudo curl unzip net-tools gawk openssl findutils pigz libcurl4 libc6 libcrypt1 apt-utils libcurl4-openssl-dev ca-certificates binfmt-support nano -yqq && rm -rf /var/cache/apt/*
+RUN apt update && DEBIAN_FRONTEND=noninteractive apt-get install default-jre systemd-sysv tzdata sudo curl unzip net-tools gawk openssl findutils pigz libcurl4 libc6 libcrypt1 apt-utils libcurl4-openssl-dev ca-certificates binfmt-support nano -yqq && rm -rf /var/cache/apt/*
 
 # Set port environment variable
 ENV Port=25565
@@ -27,7 +29,7 @@ ENV BedrockPort=19132
 ENV MaxMemory=
 
 # Optional Paper Minecraft Version override
-ENV Version="1.20.4"
+# ENV Version="1.20.4"
 
 # Optional Timezone
 ENV TZ="America/Denver"
